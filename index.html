@@ -898,6 +898,7 @@
                         <li><a href="#testimonials">Reviews</a></li>
                         <li><a href="#faq">FAQ</a></li>
                         <li><a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">Download on App Store</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary" style="color: var(--primary-color);">Text me the Link</a></li>
                     </ul>
                 </nav>
                 <div class="hamburger" aria-label="Mobile Menu Toggle">
@@ -927,6 +928,7 @@
                         <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">
                             <i class="fab fa-apple"></i> Download on App Store
                         </a>
+                        <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary" style="margin-left: 15px;">Text me the Link</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -1212,6 +1214,19 @@
         nextButton.addEventListener('click', () => {
             screenshotsSlider.scrollBy({ left: 300, behavior: 'smooth' });
         });
+
+        // Function to scroll to SMS section with offset for fixed header
+        function scrollToSMS() {
+            const smsSection = document.getElementById('sms');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const smsPosition = smsSection.getBoundingClientRect().top + window.pageYOffset;
+
+            // Scroll to SMS section with offset
+            window.scrollTo({
+                top: smsPosition - headerHeight - 20, // Extra 20px for padding
+                behavior: 'smooth'
+            });
+        }
 
         // SMS Form Submission
         document.getElementById('smsForm').addEventListener('submit', function(e) {
