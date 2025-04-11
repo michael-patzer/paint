@@ -56,189 +56,254 @@
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #0e33ff; /* Darker blue for better contrast */
-            --secondary-color: #0026cc; /* Even darker for hover states */
-            --accent-color: #ff6b6b; /* Kept the accent color */
-            --light-bg: #f8f9fa;
-            --dark-text: #333;
-            --light-text: #fff;
-            --grey-text: #666; /* Darkened for better readability */
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --light-blue: #f0f7ff;
+            --dark-text: #111827;
+            --gray-text: #4b5563;
+            --light-gray: #e5e7eb;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --rounded: 12px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
         }
         
         body {
-            background-color: var(--light-bg);
             color: var(--dark-text);
-            line-height: 1.8; /* Increased for better readability */
-            font-size: 16px; /* Base font size */
+            line-height: 1.6;
+            font-size: 16px;
+            background-color: var(--white);
         }
         
         a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: inherit;
         }
         
         h1, h2, h3, h4 {
+            line-height: 1.3;
             font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.3; /* Improved heading line height */
         }
         
         h1 {
-            font-size: 3.2rem; /* Increased size for better hierarchy */
+            font-size: 2.75rem;
+            letter-spacing: -0.025em;
         }
         
         h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
+            letter-spacing: -0.025em;
         }
         
         h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
         }
         
         p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray-text);
         }
         
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
         
         .btn {
-            display: inline-block;
-            padding: 15px 30px; /* Increased size */
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--rounded);
             font-weight: 600;
-            transition: all 0.3s ease;
-            text-align: center;
-            margin-top: 1rem;
-            font-size: 1.1rem; /* Increased font size */
-            min-width: 220px; /* Ensure minimum width */
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            gap: 0.5rem;
         }
         
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px) scale(1.05); /* Added scale effect */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
         }
         
         .btn-secondary {
-            background-color: transparent;
+            background-color: var(--light-blue);
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
         }
         
         .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--light-text);
+            background-color: #e1edff;
+            transform: translateY(-2px);
         }
         
         .section {
-            padding: 80px 0;
+            padding: 5rem 0;
         }
         
         .text-center {
             text-align: center;
         }
-
-        .mb-5 {
-            margin-bottom: 3rem;
-        }
-
-        .mb-3 {
-            margin-bottom: 1.5rem;
-        }
         
         /* Header Styles */
         header {
-            background-color: var(--light-bg);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.7);
         }
         
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 1rem 0;
+            height: 70px;
         }
         
         .logo {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         
         .logo img {
-            height: 50px;
-            margin-right: 10px;
-            border-radius: 12px;
+            height: 40px;
+            border-radius: 10px;
         }
         
         .logo h1 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin: 0;
-            color: var(--primary-color);
+            font-weight: 600;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
             align-items: center;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
+            gap: 2rem;
         }
         
         .nav-links a {
-            color: var(--dark-text);
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.2s ease;
         }
         
         .nav-links a:hover {
             color: var(--primary-color);
         }
-
-        .nav-links .btn {
-            margin-top: 0;
-            color: var(--light-text);
+        
+        .app-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
-
+        
+        .get-app-btn, .qr-button, .qr-button-top {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--rounded);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            gap: 0.5rem;
+        }
+        
+        .get-app-btn:hover, .qr-button:hover, .qr-button-top:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .qr-popup {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background-color: var(--white);
+            border-radius: var(--rounded);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+            width: 180px;
+            text-align: center;
+        }
+        
+        .qr-popup-top {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--white);
+            border-radius: var(--rounded);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+            width: 180px;
+            text-align: center;
+        }
+        
+        .get-app-btn:hover .qr-popup, .qr-button:hover .qr-popup, .qr-button-top:hover .qr-popup-top {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .qr-popup img, .qr-popup-top img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .qr-popup p, .qr-popup-top p {
+            color: var(--dark-text);
+            font-size: 0.875rem;
+            margin-bottom: 0;
+        }
+        
         .hamburger {
             display: none;
             cursor: pointer;
-            width: 44px;
-            height: 44px;
-            align-items: center;
-            justify-content: center;
+            width: 24px;
+            height: 24px;
         }
         
         /* Hero Section */
         .hero {
-            padding: 160px 0 80px;
+            padding: 8rem 0 5rem;
+            background-color: var(--white);
             position: relative;
-            overflow: hidden;
         }
         
         .hero-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 3rem;
+            gap: 4rem;
         }
         
         .hero-text {
@@ -246,159 +311,134 @@
         }
         
         .hero h1 {
-            font-size: 3.2rem;
-            line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: var(--dark-text);
         }
         
         .hero-tagline {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 500;
-            color: var(--grey-text);
-            margin-bottom: 1.5rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
         }
         
         .hero-benefits {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
         
         .hero-benefits li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
+            gap: 0.75rem;
         }
         
         .hero-benefits i {
             color: var(--primary-color);
-            margin-right: 10px;
-            margin-top: 5px;
+            font-size: 1.25rem;
         }
         
         .hero-image {
             flex: 1;
             position: relative;
             text-align: center;
+            max-width: 360px;
         }
         
         .hero-image img {
             width: 100%;
-            max-width: 300px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .app-badge {
-            display: flex;
-            margin-top: 2rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
         }
         
-        .app-badge img {
-            height: 50px;
-        }
-
         .social-proof {
             display: flex;
-            gap: 1.5rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
-
+        
         .star-rating {
             display: flex;
             align-items: center;
             color: #FFD700;
+            gap: 0.5rem;
         }
-
+        
         .star-rating span {
             color: var(--dark-text);
-            margin-left: 5px;
+            font-weight: 500;
         }
-
-        .download-count {
-            color: var(--grey-text);
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
         }
         
         /* Features Section */
         .features {
-            background-color: #fff;
+            background-color: var(--light-blue);
+            padding: 6rem 0;
+            border-radius: 24px;
+            margin: 3rem 0;
         }
         
-        .section-title {
-            font-size: 2.5rem;
+        .section-heading {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-heading h2 {
             margin-bottom: 1rem;
         }
         
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--grey-text);
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        .section-heading p {
+            font-size: 1.125rem;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-bottom: 3rem;
         }
-
+        
         .feature-card {
-            background-color: var(--light-bg);
+            background-color: var(--white);
             padding: 2rem;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            border-radius: var(--rounded);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
             position: relative;
-            cursor: pointer;
         }
         
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
         }
-
-        .feature-primary {
-            grid-column: span 3;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .feature-primary .feature-content {
-            padding-right: 2rem;
-        }
-
-        .feature-primary .feature-image {
-            width: 60%;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
+        
         .step-number {
+            position: absolute;
+            top: -12px;
+            left: -12px;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
-            height: 30px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: -10px;
-            left: -10px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
         
         .feature-icon {
-            width: 70px;
-            height: 70px;
-            background-color: rgba(14, 51, 255, 0.1);
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-blue);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -406,32 +446,17 @@
         }
         
         .feature-icon i {
-            font-size: 30px;
+            font-size: 24px;
             color: var(--primary-color);
         }
         
         .feature-card h3 {
-            font-size: 1.5rem;
             margin-bottom: 1rem;
-        }
-        
-        .feature-card p {
-            color: var(--grey-text);
-        }
-
-        .section-cta {
-            text-align: center;
-            margin-top: 3rem;
         }
         
         /* Screenshots Section */
         .screenshots {
-            background-color: var(--light-bg);
-        }
-
-        .screenshots-container {
-            position: relative;
-            padding: 0 40px;
+            padding: 6rem 0;
         }
         
         .screenshots-slider {
@@ -439,8 +464,11 @@
             gap: 1.5rem;
             overflow-x: auto;
             padding: 1.5rem 0;
-            scrollbar-width: none;
             scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
         }
         
         .screenshots-slider::-webkit-scrollbar {
@@ -449,48 +477,50 @@
         
         .screenshot-item {
             flex: 0 0 auto;
-            width: 280px;
-            transition: all 0.3s ease;
+            width: 270px;
+            transition: transform 0.3s ease;
         }
-
+        
         .screenshot-item:hover {
             transform: scale(1.05);
         }
         
         .screenshot-item img {
             width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: var(--rounded);
+            box-shadow: var(--shadow);
         }
-
-        .screenshot-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
+        
+        .screenshots-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .screenshot-nav-btn {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--light-blue);
+            color: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
         }
-
-        .screenshot-prev {
-            left: 0;
-        }
-
-        .screenshot-next {
-            right: 0;
+        
+        .screenshot-nav-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
         }
         
         /* Testimonials Section */
         .testimonials {
-            background-color: #fff;
+            background-color: var(--light-blue);
+            padding: 6rem 0;
+            border-radius: 24px;
+            margin: 3rem 0;
         }
         
         .testimonials-grid {
@@ -500,53 +530,54 @@
         }
         
         .testimonial-card {
-            background-color: var(--light-bg);
+            background-color: var(--white);
             padding: 2rem;
-            border-radius: 20px;
+            border-radius: var(--rounded);
+            box-shadow: var(--shadow);
             position: relative;
         }
         
         .testimonial-text {
             margin-bottom: 1.5rem;
-            font-style: italic;
             position: relative;
-            z-index: 1;
+            color: var(--gray-text);
+            font-style: italic;
         }
         
         .testimonial-author {
             display: flex;
             align-items: center;
+            gap: 1rem;
         }
         
         .testimonial-author img {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            margin-right: 1rem;
         }
         
         .author-info h4 {
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.25rem;
+            font-weight: 600;
         }
         
         .author-info p {
-            color: var(--grey-text);
-            font-size: 0.9rem;
+            color: var(--gray-text);
+            font-size: 0.875rem;
             margin-bottom: 0;
         }
         
         .quote-icon {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            color: rgba(14, 51, 255, 0.08);
+            color: rgba(37, 99, 235, 0.1);
             font-size: 2.5rem;
-            z-index: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
         }
         
         /* FAQ Section */
         .faq {
-            background-color: var(--light-bg);
+            padding: 6rem 0;
         }
         
         .faq-container {
@@ -556,160 +587,168 @@
         
         .faq-item {
             margin-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding-bottom: 1.5rem;
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: var(--rounded);
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid var(--light-gray);
         }
         
         .faq-question {
-            font-size: 1.2rem;
+            padding: 1.5rem;
+            cursor: pointer;
             font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
         }
         
         .faq-question i {
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
         }
         
         .faq-answer {
-            color: var(--grey-text);
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
         }
         
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-text);
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 300px;
         }
         
-        .cta-content {
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* SMS Section */
+        .sms-section {
+            background-color: var(--light-blue);
+            border-radius: var(--rounded);
+            padding: 3rem;
+            margin: 3rem 0;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
         }
         
-        .cta h2 {
-            font-size: 2.5rem;
+        .sms-section h3 {
             margin-bottom: 1.5rem;
         }
         
-        .cta p {
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-        }
-        
-        .cta .btn {
-            background-color: var(--light-text);
-            color: var(--primary-color);
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-        }
-        
-        .cta .btn:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            transform: translateY(-3px);
-        }
-        
-        /* SMS Section Styles - Simplified */
-        #sms {
-            padding: 60px 20px;
-            background-color: white;
-            text-align: center;
-        }
-
-        #sms h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--dark-text);
-        }
-
-        #sms form {
-            max-width: 400px;
-            margin: 0 auto;
+        .sms-form {
             display: flex;
-            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 0.75rem;
         }
-
-        #sms input[type="tel"] {
+        
+        .sms-form input[type="tel"] {
             flex: 1;
-            padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--rounded);
             font-size: 1rem;
         }
-
-        #sms input[type="submit"] {
-            padding: 14px 20px;
+        
+        .sms-form button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
             border: none;
-            border-radius: 30px;
-            background: var(--primary-color);
-            color: white;
-            font-size: 1rem;
+            border-radius: var(--rounded);
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: all 0.2s ease;
         }
-
-        #sms input[type="submit"]:hover {
-            background: var(--secondary-color);
-            transform: scale(1.05);
+        
+        .sms-form button:hover {
+            background-color: var(--primary-hover);
         }
-
+        
         .consent-text {
-            margin-top: 10px;
+            margin-top: 1rem;
             font-size: 0.8rem;
-            text-align: center;
-            color: var(--grey-text);
-            max-width: 400px;
+            color: var(--gray-text);
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        .consent-text a {
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Override for QR popup text in CTA section */
+        .cta-section .qr-popup-top p {
+            color: var(--dark-text);
+            font-size: 0.875rem;
+            margin-bottom: 0;
+        }
+        
+        .cta-section .btn {
+            background-color: var(--white);
             color: var(--primary-color);
-            text-decoration: underline;
+            padding: 0.875rem 2rem;
+            font-size: 1.125rem;
+        }
+        
+        .cta-section .btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark-text);
-            color: var(--light-text);
-            padding: 60px 0 30px;
+            background-color: #f8fafc;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--light-gray);
         }
         
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 2rem;
+            gap: 3rem;
             margin-bottom: 3rem;
         }
         
         .footer-logo {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
         }
         
         .footer-logo img {
-            height: 50px;
-            margin-right: 10px;
-            border-radius: 12px;
+            height: 40px;
+            border-radius: 10px;
         }
         
         .footer-logo h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: var(--light-text);
+            font-size: 1.25rem;
+            margin-bottom: 0;
         }
         
         .footer-about p {
-            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 1.5rem;
         }
         
@@ -719,26 +758,26 @@
         }
         
         .social-links a {
-            width: 44px;
-            height: 44px;
-            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            background-color: var(--light-blue);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--light-text);
-            transition: all 0.3s ease;
+            color: var(--primary-color);
+            transition: all 0.2s ease;
         }
         
         .social-links a:hover {
             background-color: var(--primary-color);
+            color: var(--white);
             transform: translateY(-3px);
         }
         
         .footer-links h3 {
-            font-size: 1.2rem;
+            font-size: 1.125rem;
             margin-bottom: 1.5rem;
-            color: var(--light-text);
         }
         
         .footer-links ul {
@@ -746,37 +785,40 @@
         }
         
         .footer-links ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.75rem;
         }
         
         .footer-links ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            transition: all 0.3s ease;
-            display: block;
-            padding: 5px 0;
+            color: var(--gray-text);
+            transition: all 0.2s ease;
         }
         
         .footer-links ul li a:hover {
             color: var(--primary-color);
-            transform: translateX(5px);
+            padding-left: 0.25rem;
         }
         
         .copyright {
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 2rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
+            border-top: 1px solid var(--light-gray);
+            color: var(--gray-text);
+            font-size: 0.875rem;
         }
         
-        /* Responsive Styles - Improved for mobile */
+        /* Responsive Styles */
         @media screen and (max-width: 992px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
             }
             
-            .section-title {
-                font-size: 2rem;
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-content, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
             .hero-content {
@@ -784,100 +826,75 @@
             }
             
             .hero-text, .hero-image {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .app-badge, .social-proof {
-                justify-content: center;
-            }
-            
-            .nav-container {
-                position: relative;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: white;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                padding: 20px;
-                flex-direction: column;
-                align-items: center;
-                z-index: 100;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 12px 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 8px 16px;
-                text-align: center;
-            }
-            
-            .nav-links a.btn {
-                margin-top: 8px;
-                width: 100%;
-            }
-            
-            .hamburger {
-                display: flex;
+                max-width: 100%;
             }
             
             .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            .feature-primary {
-                grid-column: span 1;
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            #sms form {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                padding: 1.5rem;
                 flex-direction: column;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .app-cta {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
             }
         }
         
         @media screen and (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
             h1 {
                 font-size: 2rem;
             }
             
-            .hero-tagline {
-                font-size: 1.1rem;
+            .hero-benefits li {
+                align-items: flex-start;
             }
             
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .feature-card, .testimonial-card {
-                padding: 1.5rem;
+            .hero-benefits i {
+                margin-top: 0.25rem;
             }
             
             .social-proof {
                 flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
+                gap: 1rem;
             }
             
-            .btn {
-                width: 100%;
-                padding: 12px 20px;
+            .sms-form {
+                flex-direction: column;
+            }
+            
+            .sms-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .cta-section {
+                padding: 3rem 1.5rem;
             }
         }
     </style>
@@ -889,18 +906,26 @@
             <div class="nav-container">
                 <div class="logo">
                     <img src="images/icon.png" alt="Paint Color Match & Preview App Logo">
-                    <h1>Paint Color Match & Preview</h1>
+                    <h1>Paint Color Match</h1>
                 </div>
-                <nav aria-label="Main Navigation">
+                <nav>
                     <ul class="nav-links">
                         <li><a href="#features">Features</a></li>
                         <li><a href="#screenshots">Screenshots</a></li>
                         <li><a href="#testimonials">Reviews</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">Download on App Store</a></li>
-                        <li><a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary" style="color: var(--primary-color);">Text me the Link</a></li>
                     </ul>
                 </nav>
+                <div class="app-cta">
+                    <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary">Text me the Link</a>
+                    <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="get-app-btn">
+                        <i class="fab fa-apple"></i> Get the app
+                        <div class="qr-popup">
+                            <img src="images/qrcode.png" alt="App Store QR Code">
+                            <p>Scan to download</p>
+                        </div>
+                    </a>
+                </div>
                 <div class="hamburger" aria-label="Mobile Menu Toggle">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -921,44 +946,52 @@
                         <li><i class="fas fa-check-circle"></i> Save & organize your favorite colors</li>
                     </ul>
                     <div class="social-proof">
-                        <div class="star-rating">★★★★★ <span>4.8/5 on App Store</span></div>
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.8/5 on App Store</span>
+                        </div>
                         <div class="download-count">Thousands of Happy Users</div>
                     </div>
-                    <div class="app-badge">
-                        <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">
-                            <i class="fab fa-apple"></i> Download on App Store
+                    <div class="hero-cta">
+                        <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn btn-primary qr-button-top">
+                            <i class="fab fa-apple"></i> Get the app
+                            <div class="qr-popup-top">
+                                <img src="images/qrcode.png" alt="App Store QR Code">
+                                <p>Scan to download</p>
+                            </div>
                         </a>
-                        <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary" style="margin-left: 15px;">Text me the Link</a>
+                        <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary">Text me the Link</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="images/screenshot1.png" alt="Paint Color Match & Preview app showing live color identification feature">
+                    <img src="images/screenshot2.png" alt="Paint Color Match & Preview app showing live color identification feature">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="section features" id="features">
+    <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title text-center">How It Works</h2>
-            <p class="section-subtitle text-center">Three simple steps to perfect paint colors</p>
+            <div class="section-heading">
+                <h2>How It Works</h2>
+                <p>Three simple steps to perfect paint colors</p>
+            </div>
             
             <div class="features-grid">
-                <!-- Primary Feature -->
-                <div class="feature-card feature-primary">
-                    <div class="feature-content">
-                        <span class="step-number">1</span>
-                        <div class="feature-icon">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <h3>Scan Any Color</h3>
-                        <p>Point your camera at any surface—walls, furniture, fabrics, or inspiration pieces—to instantly identify the exact color and find matching paint brands.</p>
+                <div class="feature-card">
+                    <span class="step-number">1</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
                     </div>
-                    <img src="images/scan.png" alt="Scanning color with Paint Color Match & Preview" class="feature-image">
+                    <h3>Scan Any Color</h3>
+                    <p>Point your camera at indoor or outdoor walls—to instantly identify the exact color and find matching paint brands.</p>
                 </div>
                 
-                <!-- Secondary Features -->
                 <div class="feature-card">
                     <span class="step-number">2</span>
                     <div class="feature-icon">
@@ -977,17 +1010,51 @@
                     <p>Build your personal color library and easily share with friends, family, or contractors to keep everyone on the same page.</p>
                 </div>
             </div>
-            
-            <div class="section-cta">
-                <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">Match Your Perfect Colors Now</a>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots section" id="screenshots">
+        <div class="container">
+            <div class="section-heading">
+                <h2>See It In Action</h2>
+                <p>Explore how easy it is to find and preview the perfect paint colors</p>
+            </div>
+            <div class="screenshots-slider">
+                <div class="screenshot-item">
+                    <img src="images/screenshot1.png" alt="Paint Color Match & Preview color identification interface">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screenshot2.png" alt="Paint Color Match & Preview wall preview feature">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screenshot3.png" alt="Paint Color Match & Preview saved colors library">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screenshot4.png" alt="Paint Color Match & Preview manufacturer selection screen">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screenshot5.png" alt="Paint Color Match & Preview photo editing feature">
+                </div>
+            </div>
+            <div class="screenshots-nav">
+                <div class="screenshot-nav-btn screenshot-prev">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="screenshot-nav-btn screenshot-next">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section - Moved up as recommended -->
-    <section class="section testimonials" id="testimonials">
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="section-title text-center">What Our Users Say</h2>
+            <div class="section-heading">
+                <h2>What Our Users Say</h2>
+                <p>Join thousands of satisfied customers who have transformed their homes</p>
+            </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="quote-icon">
@@ -1029,79 +1096,43 @@
                     </div>
                 </div>
             </div>
-            <div class="section-cta">
-                <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">Join Thousands of Happy Users</a>
-            </div>
         </div>
     </section>
 
-    <!-- Screenshots Section - Added navigation controls -->
-    <section class="section screenshots" id="screenshots">
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq">
         <div class="container">
-            <h2 class="section-title text-center">See It In Action</h2>
-            <p class="section-subtitle text-center">Explore how easy it is to find and preview the perfect paint colors</p>
-            <div class="screenshots-container">
-                <div class="screenshot-nav screenshot-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="screenshots-slider">
-                    <div class="screenshot-item">
-                        <img src="images/screenshot1.png" alt="Paint Color Match & Preview color identification interface">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="images/screenshot2.png" alt="Paint Color Match & Preview wall preview feature">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="images/screenshot3.png" alt="Paint Color Match & Preview saved colors library">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="images/screenshot4.png" alt="Paint Color Match & Preview manufacturer selection screen">
-                    </div>
-                    <div class="screenshot-item">
-                        <img src="images/screenshot5.png" alt="Paint Color Match & Preview photo editing feature">
-                    </div>
-                </div>
-                <div class="screenshot-nav screenshot-next">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
+            <div class="section-heading">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Paint Color Match & Preview</p>
             </div>
-            <div class="section-cta">
-                <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">See It In Action On Your Walls</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section - Reduced to 3 critical questions -->
-    <section class="section faq" id="faq">
-        <div class="container">
-            <h2 class="section-title text-center">Frequently Asked Questions</h2>
             <div class="faq-container">
-                <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
-                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <div class="faq-question" itemprop="name">
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <span>How accurate is the color matching?</span>
                             <i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <p itemprop="text">Our AI-powered color matching technology is highly accurate, with up to 90%+ precision in most lighting conditions. For best results, take photos in natural daylight and ensure proper focus. The app works completely offline, so you can match colors anywhere.</p>
+                        <div class="faq-answer">
+                            <p>Our AI-powered color matching technology is highly accurate, with up to 90%+ precision in most lighting conditions. For best results, take photos in natural daylight and ensure proper focus. The app works completely offline, so you can match colors anywhere.</p>
                         </div>
                     </div>
-                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <div class="faq-question" itemprop="name">
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <span>Which paint brands are included in the app?</span>
                             <i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <p itemprop="text">We include colors from all major paint manufacturers including Sherwin-Williams, Benjamin Moore, Behr, Valspar, PPG, Pantone, RAL, Vista, Avery, Dunn-Edwards, Dutch Boy, IKEA, & Farrow-Ball. Our database is regularly updated with the latest colors.</p>
+                        <div class="faq-answer">
+                            <p>We include colors from all major paint manufacturers including Sherwin-Williams, Benjamin Moore, Behr, Valspar, PPG, Pantone, RAL, Vista, Avery, Dunn-Edwards, Dutch Boy, IKEA, & Farrow-Ball. Our database is regularly updated with the latest colors.</p>
                         </div>
                     </div>
-                    <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <div class="faq-question" itemprop="name">
+                    <div class="faq-item">
+                        <div class="faq-question">
                             <span>Can I share paint colors with others?</span>
                             <i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                            <p itemprop="text">Yes! You can easily share your saved or favorite paint colors via email, text, or social media directly from the app. This is perfect for getting feedback from family members or collaborating with designers and contractors.</p>
+                        <div class="faq-answer">
+                            <p>Yes! You can easily share your saved or favorite paint colors via email, text, or social media directly from the app. This is perfect for getting feedback from family members or collaborating with designers and contractors.</p>
                         </div>
                     </div>
                 </div>
@@ -1109,39 +1140,43 @@
         </div>
     </section>
 
-    <!-- SMS Section - Simplified -->
-    <section class="section" id="sms">
-        <div class="container">
+    <!-- SMS Section -->
+    <div class="container">
+        <section class="sms-section" id="sms">
             <h3>Get the App Link via SMS</h3>
-            <form id="smsForm">
-                <input type="tel" name="phone" placeholder="Enter your mobile number" required aria-label="Mobile phone number">
-                <input type="submit" value="Send Link">
+            <form class="sms-form" id="smsForm">
+                <input type="tel" name="phone" placeholder="Enter your mobile number" required>
+                <button type="submit">Send Link</button>
             </form>
             <p class="consent-text">
                 By clicking "Send Link", you consent to receive a one-time SMS with your app download link. Message & data rates may apply.
             </p>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- CTA Section -->
-    <section class="section cta" id="download">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Find Your Perfect Paint Color?</h2>
-                <p>Download the app today to match, preview, and explore real paint colors with AI-powered accuracy.</p>
-                <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn">Get Your Perfect Paint Colors</a>
-            </div>
-        </div>
-    </section>
+    <div class="container">
+        <section class="cta-section" id="download">
+            <h2>Ready to Find Your Perfect Paint Color?</h2>
+            <p>Download the app today to match, preview, and explore real paint colors with AI-powered accuracy.</p>
+            <a href="https://apps.apple.com/app/apple-store/id6741589366?pt=649248&ct=website&mt=8" class="btn qr-button-top">
+                <i class="fab fa-apple"></i> Get the app
+                <div class="qr-popup-top">
+                    <img src="images/qrcode.png" alt="App Store QR Code">
+                    <p>Scan to download</p>
+                </div>
+            </a>
+        </section>
+    </div>
 
-    <!-- Footer - Streamlined -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
                     <div class="footer-logo">
                         <img src="images/icon.png" alt="Paint Color Match & Preview Logo">
-                        <h2>Paint Color Match & Preview</h2>
+                        <h2>Paint Color Match</h2>
                     </div>
                     <p>Transform your space with the power of AI color matching technology. Our app helps you visualize, match, and discover the perfect paint colors for your home.</p>
                     <div class="social-links">
@@ -1172,36 +1207,22 @@
     </footer>
 
     <script>
-        // Mobile menu toggle - Improved implementation
+        // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            const isExpanded = navLinks.classList.contains('active');
-            hamburger.setAttribute('aria-expanded', isExpanded);
         });
         
-        // Simple toggle for FAQ items
+        // FAQ toggle
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                    icon.classList.remove('fa-chevron-up');
-                    icon.classList.add('fa-chevron-down');
-                    question.setAttribute('aria-expanded', 'false');
-                } else {
-                    answer.style.display = 'block';
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-up');
-                    question.setAttribute('aria-expanded', 'true');
-                }
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
             });
         });
-
+        
         // Screenshot navigation
         const screenshotsSlider = document.querySelector('.screenshots-slider');
         const prevButton = document.querySelector('.screenshot-prev');
@@ -1215,15 +1236,14 @@
             screenshotsSlider.scrollBy({ left: 300, behavior: 'smooth' });
         });
 
-        // Function to scroll to SMS section with offset for fixed header
+        // Function to scroll to SMS section
         function scrollToSMS() {
             const smsSection = document.getElementById('sms');
             const headerHeight = document.querySelector('header').offsetHeight;
             const smsPosition = smsSection.getBoundingClientRect().top + window.pageYOffset;
 
-            // Scroll to SMS section with offset
             window.scrollTo({
-                top: smsPosition - headerHeight - 20, // Extra 20px for padding
+                top: smsPosition - headerHeight - 20,
                 behavior: 'smooth'
             });
         }
@@ -1252,16 +1272,10 @@
             })
             .catch(err => console.error(err));
         });
-
-        // Hide all FAQ answers initially
-        document.querySelectorAll('.faq-answer').forEach(answer => {
-            answer.style.display = 'none';
-        });
         
-        // Add aria attributes for better accessibility
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.setAttribute('aria-expanded', 'false');
-        });
+        // Create QR code for app download
+        // Note: In a real implementation, you would generate a real QR code that points to the App Store link
+        // For this demo, we're using a placeholder image
     </script>
 </body>
 </html>
