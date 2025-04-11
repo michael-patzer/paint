@@ -287,6 +287,12 @@
                 opacity: 0;
                 visibility: hidden;
             }
+            
+            /* Prevent any touch events from triggering hover behavior on these elements */
+            .get-app-btn, .qr-button, .qr-button-top {
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-touch-callout: none;
+            }
         }
         
         .get-app-btn:hover .qr-popup, .qr-button:hover .qr-popup, .qr-button-top:hover .qr-popup-top {
@@ -1294,9 +1300,24 @@
             .catch(err => console.error(err));
         });
         
-        // Create QR code for app download
-        // Note: In a real implementation, you would generate a real QR code that points to the App Store link
-        // For this demo, we're using a placeholder image
+        // Disable hover for touch devices
+        document.addEventListener('DOMContentLoaded', function() {
+        // Check if device is touch-enabled
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            // Get all QR code buttons
+            const qrButtons = document.querySelectorAll('.get-app-btn, .qr-button, .qr-button-top');
+            
+            // Add touch events to each button
+            qrButtons.forEach(button => {
+                button.addEventListener('touchstart', function(e) {
+                    // If this is a QR button with popup, prevent default behavior on first touch
+                    if (button.querySelector('.qr-popup') || button.querySelector('.qr-popup-top')) {
+                        e.preventDefault();
+                    }
+                });
+            });
+        }
+    });
     </script>
 </body>
 </html>
