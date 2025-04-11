@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+/* Only show QR popups on desktop/hover-capable devices */
+        @media (hover: none), (max-width: 768px) {
+            .get-app-btn:hover .qr-popup, 
+            .qr-button:hover .qr-popup, 
+            .qr-button-top:hover .qr-popup-top {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
