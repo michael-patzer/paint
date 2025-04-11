@@ -279,19 +279,10 @@
             }
         }
 
-        /* Explicitly disable hover effect on touch devices */
-        @media (hover: none), (max-width: 768px) {
-            .get-app-btn:hover .qr-popup, 
-            .qr-button:hover .qr-popup, 
-            .qr-button-top:hover .qr-popup-top {
-                opacity: 0;
-                visibility: hidden;
-            }
-            
-            /* Prevent any touch events from triggering hover behavior on these elements */
-            .get-app-btn, .qr-button, .qr-button-top {
-                -webkit-tap-highlight-color: rgba(0,0,0,0);
-                -webkit-touch-callout: none;
+        /* Explicitly hide QR popups on touch devices regardless of interaction */
+        @media (hover: none) {
+            .qr-popup, .qr-popup-top {
+                display: none !important;
             }
         }
         
@@ -1302,22 +1293,22 @@
         
         // Disable hover for touch devices
         document.addEventListener('DOMContentLoaded', function() {
-        // Check if device is touch-enabled
-        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-            // Get all QR code buttons
-            const qrButtons = document.querySelectorAll('.get-app-btn, .qr-button, .qr-button-top');
-            
-            // Add touch events to each button
-            qrButtons.forEach(button => {
-                button.addEventListener('touchstart', function(e) {
-                    // If this is a QR button with popup, prevent default behavior on first touch
-                    if (button.querySelector('.qr-popup') || button.querySelector('.qr-popup-top')) {
-                        e.preventDefault();
-                    }
+            // Check if device is touch-enabled
+            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+                // Get all QR code popups and ensure they're hidden on touch devices
+                const qrPopups = document.querySelectorAll('.qr-popup, .qr-popup-top');
+                qrPopups.forEach(popup => {
+                    popup.style.display = 'none';
                 });
-            });
-        }
-    });
+                
+                // Remove hover-related classes and attributes from the buttons
+                const qrButtons = document.querySelectorAll('.get-app-btn, .qr-button, .qr-button-top');
+                qrButtons.forEach(button => {
+                    // Make sure hover doesn't interfere with normal button functionality
+                    button.style.pointerEvents = 'auto';
+                });
+            }
+        });
     </script>
 </body>
 </html>
