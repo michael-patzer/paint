@@ -235,6 +235,7 @@
             background-color: var(--primary-hover);
         }
         
+        /* QR Popup Styles */
         .qr-popup {
             position: absolute;
             top: calc(100% + 10px);
@@ -250,7 +251,7 @@
             width: 180px;
             text-align: center;
         }
-        
+
         .qr-popup-top {
             position: absolute;
             bottom: calc(100% + 10px);
@@ -269,6 +270,16 @@
         }
 
         /* Only show QR popups on desktop/hover-capable devices */
+        @media (hover: hover) {
+            .get-app-btn:hover .qr-popup, 
+            .qr-button:hover .qr-popup, 
+            .qr-button-top:hover .qr-popup-top {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        /* Explicitly disable hover effect on touch devices */
         @media (hover: none), (max-width: 768px) {
             .get-app-btn:hover .qr-popup, 
             .qr-button:hover .qr-popup, 
